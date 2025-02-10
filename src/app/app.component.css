@@ -1,0 +1,10 @@
+.container{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.col{
+    padding: 10px;
+    border: 1px solid #ccc;
+    height:500px;
+}
