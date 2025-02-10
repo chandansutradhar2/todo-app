@@ -1,21 +1,16 @@
 <div>
     <h4>{{title}}</h4>
     <br>
-    
-    <!-- <table>
+    <table>
         <tr>
-            <th>
-                Refund Date
-            </th>
-            <th>
-                Refund Amount
-            </th>
-            <th>Refund Status</th>
+            <th>Date</th>
+            <th>TODO</th>
+            <th>Completed?</th>
         </tr>
-        <tr>
-            <td>{{refund.refundDate}}</td>
-            <td>{{refund.refundAmount}}</td>
-            <td>{{refund.refundStatus}}</td>
+        <tr *ngFor="let t of todos">
+            <td>{{t.date}}</td>
+            <td>{{t.description}}</td>
+            <td>{{t.isCompleted}}</td>
         </tr>
-    </table> -->
+    </table>
 </div>

@@ -5,10 +5,11 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
 import { SearchComponent } from './search/search.component';
 import { Refund } from '../models/refund.model';
 import { ToDO } from '../models/todo.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [ SideHeaderComponent, BookmarkComponent, SearchComponent],
+  imports: [ CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -21,7 +22,7 @@ export class AppComponent {
     refundStatus:false
   };
 
-  todo:ToDO[]=[{
+  todos:ToDO[]=[{
     description:'Buy Groceries',
     date:'01-02-2025',
     isCompleted:false
