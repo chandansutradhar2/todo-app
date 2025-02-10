@@ -13,4 +13,16 @@
             <td>{{t.isCompleted}}</td>
         </tr>
     </table>
+    
+    <div class="data-entry">
+        <input type="text" placeholder="Date">
+        <input type="text" placeholder="TODO TASK">
+        <button>Add</button>
+    </div>
+
+    <div class="name">
+        <input type="text" [(ngModel)]="fullName"/>
+        <button (click)="showFullName()">SHOW NAME</button>
+        <label>{{fullName}}</label>
+    </div>
 </div>

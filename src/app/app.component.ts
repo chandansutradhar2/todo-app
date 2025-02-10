@@ -6,10 +6,11 @@ import { SearchComponent } from './search/search.component';
 import { Refund } from '../models/refund.model';
 import { ToDO } from '../models/todo.model';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [ CommonModule],
+  imports: [ CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -36,6 +37,13 @@ export class AppComponent {
     isCompleted:false
   }]
 
+  fullName:string="chandan";
+
   constructor(){
+  }
+
+
+  showFullName(){
+    alert(this.fullName);
   }
 }
