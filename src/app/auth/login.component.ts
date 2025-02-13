@@ -1,15 +1,20 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { User } from "../../models/user.model";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 
 @Component({
 standalone: true,
 selector:'app-login',
+imports:[CommonModule, FormsModule],
 templateUrl:'./login.component.html',
 styleUrls:['./login.component.css']
 })
 
 export class LoginComponent implements OnInit{
 @Input() mobileNo: string='';
+
 @Output() onLoginSuccess: EventEmitter<User> = new EventEmitter<User>();
 constructor(){
     console.log('LoginComponent created...', this.mobileNo);
