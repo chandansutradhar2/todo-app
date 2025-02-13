@@ -9,10 +9,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login.component';
 import { User } from '../models/user.model';
+import { SignupComponent } from "./signup/signup.component";
 
 @Component({
   selector: 'app-root',
-  imports: [ CommonModule, FormsModule, LoginComponent],
+  imports: [CommonModule, FormsModule,LoginComponent, SignupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,

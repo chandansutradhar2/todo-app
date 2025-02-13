@@ -1,9 +1,19 @@
 <div class="main_container">
     <div class="left"></div>
     <div class="right">
-        <form>
+        <form class="form">
             <!-- <input class="mobileText" type="text" placeholder="Username" name="username" [(ngModel)]="mobileNo" required> -->
-        
+            <div class="mb-3">
+                <label for="mobileNo" class="form-label label
+                ">Mobile</label>
+                <input type="text" class="form-control" id="mobileNo" placeholder="8080811145">
+              </div>
+              <div class="mb-3">
+                <label for="pass" class="form-label label
+                ">Password</label>
+                <input type="password" class="form-control" id="pass" placeholder="">
+              </div>
+              <button  type="button" class="btn btn-warning full-width">LOGIN</button>
         </form>
     </div>
 </div>    
