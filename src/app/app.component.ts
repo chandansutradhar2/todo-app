@@ -7,43 +7,49 @@ import { Refund } from '../models/refund.model';
 import { ToDO } from '../models/todo.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './auth/login.component';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-root',
-  imports: [ CommonModule, FormsModule],
+  imports: [ CommonModule, FormsModule, LoginComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone: true,
 })
 export class AppComponent {
-  title = 'todo-app';
-
-  refund:Refund={
-    refundAmount:1500,
-    refundDate:'01-01-2025',
-    refundStatus:false
-  };
+  user?:User;
+  isAuthenticated:boolean=false;
+  mobileNo:string='';
 
   todos:ToDO[]=[{
-    description:'Buy Groceries',
-    date:'01-02-2025',
+    date:'2021-09-01',
+    description:'Buy groceries',
     isCompleted:false
   }, {
-    date:'01-02-2025',
-    description:'Buy Pencil',
-    isCompleted:false,
-  }, {
-    description:'Sell Old Newspaper',
-    date:'01-02-2025',
+    date:'2021-09-02',
+    description:'Pay bills',
     isCompleted:false
-  }]
-
-  fullName:string="chandan";
-
+  }, {
+    date:'2021-09-03',
+    description:'Complete assignment',
+    isCompleted:false
+  }];
   constructor(){
-  }
+      this.mobileNo = localStorage.getItem('mobile') || '';
+      const tmp=localStorage.getItem('user');
+      if(tmp){
+        this.user=JSON.parse(tmp);
+        this.isAuthenticated=true;
+      }
+      
+    }
 
 
-  showFullName(){
-    alert(this.fullName);
-  }
+    onLoginEvent(user:User){
+      this.user=user;
+      this.isAuthenticated=true;
+      localStorage.setItem('user',JSON.stringify(user));
+
+    }
 }

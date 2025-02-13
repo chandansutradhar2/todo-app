@@ -1,28 +1,10 @@
-<div>
-    <h4>{{title}}</h4>
-    <br>
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>TODO</th>
-            <th>Completed?</th>
-        </tr>
-        <tr *ngFor="let t of todos">
-            <td>{{t.date}}</td>
-            <td>{{t.description}}</td>
-            <td>{{t.isCompleted}}</td>
-        </tr>
-    </table>
-    
-    <div class="data-entry">
-        <input type="text" placeholder="Date">
-        <input type="text" placeholder="TODO TASK">
-        <button>Add</button>
-    </div>
-
-    <div class="name">
-        <input type="text" [(ngModel)]="fullName"/>
-        <button (click)="showFullName()">SHOW NAME</button>
-        <label>{{fullName}}</label>
-    </div>
+<h2>TOdo App</h2>
+<div *ngIf="!isAuthenticated==true">
+    <app-login [mobileNo]="mobileNo" (onLoginSuccess)="onLoginEvent($event)"></app-login>
+</div>
+<div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+    <a href="#">{{i}}</a>
+</div>
+<div *ngFor="let todo of todos">
+<h4>{{todo.date}} <span>{{todo.description}}</span> <span>&nbsp;{{todo.isCompleted}}</span></h4>
 </div>
