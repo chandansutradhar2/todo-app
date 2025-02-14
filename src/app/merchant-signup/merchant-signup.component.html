@@ -1,0 +1,143 @@
+<form [formGroup]="frmgrp" class="container mt-4">
+    <h2 class="text-center mb-4">Merchant Signup</h2>
+  
+    <!-- Bootstrap Nav Tabs -->
+    <ul class="nav nav-tabs" id="merchantSignupTabs" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal"
+          type="button" role="tab">Personal Info</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="business-tab" data-bs-toggle="tab" data-bs-target="#business"
+          type="button" role="tab">Business Info</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="bank-tab" data-bs-toggle="tab" data-bs-target="#bank"
+          type="button" role="tab">Bank Info</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="signatories-tab" data-bs-toggle="tab" data-bs-target="#signatories"
+          type="button" role="tab">Signatories</button>
+      </li>
+    </ul>
+  
+    <!-- Tab Content -->
+    <div class="tab-content mt-3">
+  
+      <!-- Personal Info Tab -->
+      <div class="tab-pane fade show active" id="personal">
+        <div formGroupName="personalInfo">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="fullname" placeholder="Enter full name" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Mobile</label>
+              <input type="text" class="form-control" formControlName="mobile" placeholder="Enter mobile number" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" placeholder="Enter email" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Enter password" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Business Info Tab -->
+      <div class="tab-pane fade" id="business">
+        <div formGroupName="businessInfo">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Business Name</label>
+              <input type="text" class="form-control" formControlName="businessName" placeholder="Enter business name" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Business Type</label>
+              <input type="text" class="form-control" formControlName="businessType" placeholder="Enter business type" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Business Category</label>
+              <input type="text" class="form-control" formControlName="businessCategory" placeholder="Enter category" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Business Address</label>
+              <input type="text" class="form-control" formControlName="businessAddress" placeholder="Enter address" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">City</label>
+              <input type="text" class="form-control" formControlName="businessCity" placeholder="Enter city" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">State</label>
+              <input type="text" class="form-control" formControlName="businessState" placeholder="Enter state" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Pincode</label>
+              <input type="text" class="form-control" formControlName="businessPincode" placeholder="Enter pincode" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Bank Info Tab -->
+      <div class="tab-pane fade" id="bank">
+        <div formGroupName="bankInfo">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Account Holder Name</label>
+              <input type="text" class="form-control" formControlName="accountHolderName" placeholder="Enter account holder name" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Account Number</label>
+              <input type="text" class="form-control" formControlName="accountNumber" placeholder="Enter account number" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">IFSC Code</label>
+              <input type="text" class="form-control" formControlName="ifscCode" placeholder="Enter IFSC code" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Bank Name</label>
+              <input type="text" class="form-control" formControlName="bankName" placeholder="Enter bank name" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Branch Name</label>
+              <input type="text" class="form-control" formControlName="branchName" placeholder="Enter branch name" />
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Signatories Tab -->
+      <div class="tab-pane fade" id="signatories">
+        <h4 class="mb-3">Signatories</h4>
+        <div formArrayName="signaturies">
+          <div *ngFor="let signatory of signaturies.controls; let i = index" [formGroupName]="i" class="mb-3">
+            <div class="row">
+              <div class="col-md-3">
+                <input type="text" class="form-control" formControlName="name" placeholder="Name" />
+              </div>
+              <div class="col-md-3">
+                <input type="text" class="form-control" formControlName="designation" placeholder="Designation" />
+              </div>
+              <div class="col-md-3">
+                <input type="text" class="form-control" formControlName="mobile" placeholder="Mobile" />
+              </div>
+              <div class="col-md-3">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+              </div>
+            </div>
+            <button type="button" class="btn btn-danger btn-sm mt-2" (click)="removeSignatory(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" (click)="addSignatory()">Add Signatory</button>
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-success mt-4">Submit</button>
+  </form>
+  
