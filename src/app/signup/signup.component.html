@@ -1,27 +1,27 @@
 <div class="main_container">
   <div class="left"></div>
   <div class="right">
-    <form class="form">
+    <form class="form needs-validation" novalidate>
       <h2 style="color:white;margin-bottom: 10%;">Sign Up</h2>
       <div class="mb-3">
         <label for="fullname" class="form-label label
                 ">Full Name</label>
-        <input type="text" class="form-control" id="fullname" placeholder="" [(ngModel)]="fullname" name="fullname">
+        <input type="text" class="form-control" id="fullname" placeholder="" [formControl]="fullname"  name="fullname" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label label
                 ">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="" [(ngModel)]="email"  [ngModelOptions]="{standalone: true}">
+        <input type="email" class="form-control" id="email" placeholder="" [formControl]="email"  name="email" required>
       </div>
       <div class="mb-3">
         <label for="mobileNo" class="form-label label
                 ">Mobile</label>
-        <input type="text" class="form-control" id="mobileNo" placeholder="8080811145" [(ngModel)]="mobile"  [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control" id="mobileNo" placeholder="8080811145"  [formControl]="mobile"  name="mobileNo">
       </div>
       <div class="mb-3">
         <label for="pass" class="form-label label
                 ">Password</label>
-        <input type="password" class="form-control" id="pass" placeholder="" [(ngModel)]="password"  [ngModelOptions]="{standalone: true}">
+        <input type="password" class="form-control valid" id="pass" placeholder=""  [formControl]="password"  name="pass">
       </div>
 
       <div class="mb-3">

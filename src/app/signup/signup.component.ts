@@ -1,23 +1,26 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
   standalone: true,
 })
 export class SignupComponent {
-  fullname: string='';
-  mobile:string='';
-  email:string='';
-  password:string='';
+  fullname=new FormControl('');
+  mobile=new FormControl('');
+  email=new FormControl('');
+  password=new FormControl('');
 
+  constructor(){
+    
+  }
   onSubmit(){
-    console.log(this.fullname);
-    console.log(this.mobile);
-    console.log(this.email);
-    console.log(this.password);
+    if(this.fullname.value=='' || this.mobile.value=='' || this.email.value=='' || this.password.value==''){
+      alert('Please fill all the fields');
+    }
+    
   }
 }
