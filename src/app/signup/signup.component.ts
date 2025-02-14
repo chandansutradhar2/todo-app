@@ -9,5 +9,15 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
 })
 export class SignupComponent {
+  fullname: string='';
+  mobile:string='';
+  email:string='';
+  password:string='';
 
+  onSubmit(){
+    console.log(this.fullname);
+    console.log(this.mobile);
+    console.log(this.email);
+    console.log(this.password);
+  }
 }

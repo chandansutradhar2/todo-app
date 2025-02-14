@@ -15,7 +15,9 @@ styleUrls:['./login.component.css']
 export class LoginComponent implements OnInit{
 @Input() mobileNo: string='';
 
+password:string='';
 @Output() onLoginSuccess: EventEmitter<User> = new EventEmitter<User>();
+
 constructor(){
     console.log('LoginComponent created...', this.mobileNo);
 }
@@ -28,6 +30,8 @@ ngOnInit(): void {
 onLogin(){
 //todo code to validate user
 //assume validation via api is success
+
+
 const user:User={
     name:'Test User',
     email:'testuser@gmail.com',
@@ -36,7 +40,8 @@ const user:User={
     role:'user',
     status:'active'
 };
+    
+//this.onLoginSuccess.emit(user);
 
-this.onLoginSuccess.emit(user);
 }
 }

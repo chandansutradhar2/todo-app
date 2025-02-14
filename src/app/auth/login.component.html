@@ -4,14 +4,15 @@
         <form class="form">
             <!-- <input class="mobileText" type="text" placeholder="Username" name="username" [(ngModel)]="mobileNo" required> -->
             <div class="mb-3">
-                <label for="mobileNo" class="form-label label
+
+                <label for="mobileNo"  [ngClass]="(mobileNo.length==10)?'label-success':'label-error'" class="form-label label
                 ">Mobile</label>
-                <input type="text" class="form-control" id="mobileNo" placeholder="8080811145">
+                <input type="text" class="form-control"  id="mobileNo" [(ngModel)]="mobileNo" [ngModelOptions]="{standalone: true}" placeholder="8080811145">
               </div>
               <div class="mb-3">
-                <label for="pass" class="form-label label
+                <label for="pass" [ngStyle]="{'color':password.length>8 ?'green':'tomato'}" class="form-label label 
                 ">Password</label>
-                <input type="password" class="form-control" id="pass" placeholder="">
+                <input type="password" [(ngModel)]="password"  class="form-control" id="pass" placeholder="" [ngModelOptions]="{standalone: true}">
               </div>
               <button  type="button" class="btn btn-warning full-width">LOGIN</button>
         </form>
