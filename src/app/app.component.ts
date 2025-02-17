@@ -7,14 +7,11 @@ import { Refund } from '../models/refund.model';
 import { ToDO } from '../models/todo.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './auth/login.component';
 import { User } from '../models/user.model';
-import { SignupComponent } from "./signup/signup.component";
-import { MerchantSignupComponent } from "./merchant-signup/merchant-signup.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, MerchantSignupComponent],
+  imports: [CommonModule, FormsModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,

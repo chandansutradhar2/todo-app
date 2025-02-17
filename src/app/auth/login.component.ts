@@ -3,11 +3,12 @@ import { User } from "../../models/user.model";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
+import { Router, RouterModule } from "@angular/router";
 
 @Component({
 standalone: true,
 selector:'app-login',
-imports:[CommonModule, ReactiveFormsModule],
+imports:[CommonModule, ReactiveFormsModule, RouterModule],
 templateUrl:'./login.component.html',
 styleUrls:['./login.component.css']
 })
@@ -22,7 +23,7 @@ frmGrp = new FormGroup({
 password:string='';
 @Output() onLoginSuccess: EventEmitter<User> = new EventEmitter<User>();
 
-constructor(){
+constructor(private router:Router){
 }
 
 ngOnInit(): void {
@@ -46,4 +47,9 @@ const user:User={
 //this.onLoginSuccess.emit(user);
 
 }
+
+redirectToSignUp(){
+    console.log('Redirecting to signup page...');
+    this.router.navigate(['/signup']);
+}   
 }

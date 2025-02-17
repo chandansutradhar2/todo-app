@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
   standalone: true,
@@ -18,12 +19,16 @@ export class SignupComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
   });
 
-  constructor(){
+  constructor(private router:Router){
     
   }
   onSubmit(){
     
     debugger;
     console.log(this.frmGrp.value);
+  }
+
+  redirectToLogin(){
+    this.router.navigate(['/login']);
   }
 }

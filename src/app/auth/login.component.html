@@ -1,20 +1,21 @@
 <div class="main_container">
-    <div class="left"></div>
-    <div class="right">
-        <form class="form" [formGroup]="frmGrp" novalidate>
-            <!-- <input class="mobileText" type="text" placeholder="Username" name="username" [(ngModel)]="mobileNo" required> -->
-            <div class="mb-3">
+  <div class="left"></div>
+  <div class="right">
+    <form class="form" [formGroup]="frmGrp" novalidate>
+      <div class="mb-3">
 
-                <label for="mobileNo"   [ngClass]="(mobileNo.length==10)?'label-success':'label-error'" class="form-label label
+        <label for="mobileNo" [ngClass]="(mobileNo.length==10)?'label-success':'label-error'" class="form-label label
                 ">Mobile</label>
-                <input type="text" formControlName="mobile" class="form-control"  id="mobileNo" placeholder="8080811145">
-              </div>
-              <div class="mb-3">
-                <label for="pass" [ngStyle]="{'color':password.length>8 ?'green':'tomato'}" class="form-label label 
+        <input type="text" formControlName="mobile" class="form-control" id="mobileNo" placeholder="8080811145">
+      </div>
+      <div class="mb-3">
+        <label for="pass" [ngStyle]="{'color':password.length>8 ?'green':'tomato'}" class="form-label label 
                 ">Password</label>
-                <input type="password"  class="form-control" id="pass" formControlName="password"  name="pass" placeholder="">
-              </div>
-              <button  type="button" (click)="onLogin()" class="btn btn-warning full-width">LOGIN</button>
-        </form>
-    </div>
-</div>    
+        <input type="password" class="form-control" id="pass" formControlName="password" name="pass" placeholder="">
+      </div>
+      <button type="button" (click)="onLogin()" class="btn btn-warning full-width">LOGIN</button>
+      <button type="button" class="btn btn-link" (click)="redirectToSignUp()">New User? Signup</button>
+
+    </form>
+  </div>
+</div>
