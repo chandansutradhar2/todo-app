@@ -43,6 +43,8 @@ const user:User={
     role:'user',
     status:'active'
 };
+
+this.router.navigate(['/home']);
     
 //this.onLoginSuccess.emit(user);
 

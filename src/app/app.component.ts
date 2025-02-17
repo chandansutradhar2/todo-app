@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { SideHeaderComponent } from "./side-header/side-header.component";
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { SearchComponent } from './search/search.component';
@@ -11,7 +11,7 @@ import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, RouterOutlet],
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true,
@@ -34,12 +34,14 @@ export class AppComponent {
     description:'Complete assignment',
     isCompleted:false
   }];
-  constructor(){
+  constructor(private router:Router){
       this.mobileNo = localStorage.getItem('mobile') || '';
       const tmp=localStorage.getItem('user');
       if(tmp){
         this.user=JSON.parse(tmp);
-        this.isAuthenticated=true;
+        this.router.navigate(['/home']);
+      }else{
+        this.router.navigate(['/login']);
       }
       
     }
