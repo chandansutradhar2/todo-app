@@ -1,1 +1,18 @@
-<h4>Home Works!</h4>
+<nav style="display: flex; justify-content: space-around; align-items: center; background-color: #f1f1f1; padding: 10px 0;">
+    <!-- <button  (click)="routeTo('/home/
+    features')" style="cursor: pointer;">Features</button>
+    <button  (click)="routeTo('/pricing')" style="cursor: pointer;">Pricing</button>
+    <button (click)="routeTo('/bookmarks')" routerLinkActive="active" style="cursor: pointer;">Bookmarks</button>
+ -->
+ 
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a routerLink="/register" routerLinkActive="active">Register</a>
+    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+    <a routerLink="/logout" routerLinkActive="active">Logout</a> 
+</nav>
+<hr>
+<h6>Welcome back {{this.mobileNumber}}</h6>
+<router-outlet></router-outlet>

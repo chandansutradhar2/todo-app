@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { SideHeaderComponent } from "./side-header/side-header.component";
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { SearchComponent } from './search/search.component';
@@ -35,6 +35,12 @@ export class AppComponent {
     isCompleted:false
   }];
   constructor(private router:Router){
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        console.log('Navigated to:', event.url);
+      }
+    });
+    
       this.mobileNo = localStorage.getItem('mobile') || '';
       const tmp=localStorage.getItem('user');
       if(tmp){

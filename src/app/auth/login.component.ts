@@ -39,14 +39,12 @@ const user:User={
     name:'Test User',
     email:'testuser@gmail.com',
     password:'pass@123',
-    mobile:this.mobileNo,
+    mobile:data.mobile || '', //store mobile number if available or store empty string
     role:'user',
     status:'active'
 };
 
-this.router.navigate(['/home']);
-    
-//this.onLoginSuccess.emit(user);
+this.router.navigate(['/home',user.mobile]);
 
 }
 

@@ -5,14 +5,20 @@ import { LoginComponent } from './auth/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FeaturesComponent } from './features/features.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { SearchComponent } from './search/search.component';
+import { BookmarkComponent } from './bookmark/bookmark.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home/:mobile', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path:'signup', component: SignupComponent},
     {path:'login', component: LoginComponent},
-    {path:'features', component:FeaturesComponent},
+    {path:'home/features', component:FeaturesComponent},
     {path:'pricing', component:PricingComponent},
-    {path: '**', component:PageNotFoundComponent}
+    {path:'search', component: SearchComponent},
+    {path:'bookmark', component:BookmarkComponent},
+    {path: '**', component:PageNotFoundComponent},
+    
 ];
 
