@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row" style="height: 90vh;">
+        <div class="col-4">
+            <h1>Side Nav</h1>
+            <p>left size space</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">My Day</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Important</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Assign To me</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-disabled="true">Task</a>
+                </li>
+              </ul>
+              <div>
+                <button type="button" class="btn btn-outline-info">New List</button>
+              </div>
+              
+        </div>
+        <div class="col-8" style="border-color: black; border-width: 1em;">
+           <div class="row" style="height: 80%; width: 100%;">
+            <div class="col-12">
+                <div class="card" style="margin-top: 1em;">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" *ngFor="let task of todos; let i = index">
+                        {{task.description}}
+                        {{task.date | date: 'short'}}
+                        <button type="button" class="btn btn-outline-info" (click)="deleteTask(i)">Delete</button>
+                    </li>
+                    </ul>
+                  </div>
+            </div>
+           </div>
+           <div class="row" style="height: 20%;">
+            <div class="col-10" [formGroup]="frmGrp">
+                
+                <input type="text" class="form-control" formControlName="description"  placeholder="Add Task">
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-outline-info" (click)="addTodo()">Add Task</button>
+            </div>
+           </div>
+        </div>
+
+</div>

@@ -44,7 +44,7 @@ const user:User={
     status:'active'
 };
 
-this.router.navigate(['/home',user.mobile]);
+this.router.navigate(['/home']);
 
 }
 

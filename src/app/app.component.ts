@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
-import { SideHeaderComponent } from "./side-header/side-header.component";
-import { BookmarkComponent } from './bookmark/bookmark.component';
-import { SearchComponent } from './search/search.component';
 import { Refund } from '../models/refund.model';
 import { ToDO } from '../models/todo.model';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { User } from '../models/user.model';
 
 @Component({
@@ -52,11 +49,4 @@ export class AppComponent {
       
     }
 
-
-    onLoginEvent(user:User){
-      this.user=user;
-      this.isAuthenticated=true;
-      localStorage.setItem('user',JSON.stringify(user));
-
-    }
 }
