@@ -10,14 +10,9 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'home/:mobile', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path:'signup', component: SignupComponent},
     {path:'login', component: LoginComponent},
-    {path:'home/features', component:FeaturesComponent},
-    {path:'pricing', component:PricingComponent},
-    {path:'search', component: SearchComponent},
-    {path:'bookmark', component:BookmarkComponent},
     {path: '**', component:PageNotFoundComponent},
     
 ];
