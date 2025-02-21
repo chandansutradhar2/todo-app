@@ -5,10 +5,10 @@
             <p>left size space</p>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">My Day</a>
+                  <a class="nav-link active" aria-current="page" >My Day</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Important</a>
+                  <a class="nav-link" routerLink="">Important</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Assign To me</a>
@@ -16,20 +16,28 @@
                 <li class="nav-item">
                   <a class="nav-link" aria-disabled="true">Task</a>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" routerLink="/login">Logout</a>
+                  </li>
               </ul>
               <div>
                 <button type="button" class="btn btn-outline-info">New List</button>
               </div>
-              
         </div>
         <div class="col-8" style="border-color: black; border-width: 1em;">
            <div class="row" style="height: 80%; width: 100%;">
             <div class="col-12">
                 <div class="card" style="margin-top: 1em;">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item" *ngFor="let task of todos; let i = index">
-                        {{task.description}}
-                        {{task.date | date: 'short'}}
+                      <li class="list-group-item" *ngFor="let task of todos; let i = index" style="display: flex; justify-content: space-between;">
+                        <div>
+                          <input type="checkbox" (change)="toggleTask(i)" [checked]="task.isCompleted">
+                        </div>
+                        <div [ngStyle]="{ 'text-decoration': task.isCompleted ? 'line-through' : null }">
+                          {{task.description}}
+                          {{task.date | date: 'short'}}
+                        </div>
                         <button type="button" class="btn btn-outline-info" (click)="deleteTask(i)">Delete</button>
                     </li>
                     </ul>

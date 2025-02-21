@@ -24,12 +24,23 @@ export class HomeComponent  implements OnInit, OnDestroy{
     const tmp=localStorage.getItem('todos');
     if(tmp){
       this.todos=JSON.parse(tmp);
+      localStorage.removeItem('todos');
     }
   }
   
+  toggleTask(idx:number){
+    this.todos[idx].isCompleted=!this.todos[idx].isCompleted;
+    const todosStorage=localStorage.getItem('todos');
+    if(todosStorage){
+      let tmp=JSON.parse(todosStorage);
+      tmp[idx].isCompleted=this.todos[idx].isCompleted;
+      this.persistsTodos(tmp);  
+    }
+  }
 
   deleteTask(index:number){
     this.todos.splice(index,1);
+    this.persistsTodos(this.todos);
   }
   addTodo(){
     const data=this.frmGrp.value;
@@ -39,11 +50,17 @@ export class HomeComponent  implements OnInit, OnDestroy{
       isCompleted:false
     };
     this.todos.push(todo);
+    this.persistsTodos(this.todos);
     this.frmGrp.reset();
   }
 
   routeTo(route:string){
     this.router.navigate([route]);
+  }
+
+
+  persistsTodos(todos:ToDO []){
+    localStorage.setItem('todos',JSON.stringify(this.todos));
   }
 
 

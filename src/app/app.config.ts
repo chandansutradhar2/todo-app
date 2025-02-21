@@ -4,5 +4,5 @@ import { provideRouter, withHashLocation , withDebugTracing} from '@angular/rout
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes, withDebugTracing())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
 };
